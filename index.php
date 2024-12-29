@@ -13,13 +13,13 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            background-color:rgb(21, 16, 82); /* Slight background color for contrast */
+            background-color:#5072A7; /* Slight background color for contrast */
         }
 
         /* Header Styling */
         header {
             text-align: center;
-            background-color: navy;
+            background-color: black;
             color: white;
             padding: 20px 0;
             animation: fadeIn 1s ease-in-out;
@@ -41,7 +41,7 @@
 
         /* White Box on the Left */
         .content-box {
-            background: rgba(138, 199, 239, 0.9); /* Transparent white box */
+            background: rgba(19, 19, 19, 0.9); 
             padding: 30px;
             max-width: 45%; /* Set white box width */
             border-radius: 10px;
@@ -69,7 +69,7 @@
             text-decoration: none;
             font-weight: bold;
             padding: 12px 25px;
-            background-color: navy;
+            background-color: #5072A7;
             border-radius: 5px;
             transition: background 0.3s ease, transform 0.3s ease;
             text-align: center;
@@ -77,14 +77,14 @@
 
         a:hover {
             background-color: white;
-            color: navy;
+            color: #5072A7;
             transform: scale(1.1);
         }
 
         /* Image on the Right */
         .image-box {
             flex: 1; /* Fills remaining space */
-            background: url('./images/it\ service.jpeg') no-repeat center center / cover; /* Replace this with your image path */
+            background: url('./images/image3.jpg') no-repeat center center / cover; /* Replace this with your image path */
             border-radius: 10px;
             animation: fadeInRight 1.5s ease-in-out;
         }
@@ -93,7 +93,7 @@
         footer {
             text-align: center;
             padding: 15px 0;
-            background-color: navy;
+            background-color: black;
             color: white;
             animation: slideUp 1s ease-in-out;
         }

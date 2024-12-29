@@ -5,6 +5,11 @@ include 'db.php';
 $stmt = $conn->prepare("SELECT * FROM support_tickets");
 $stmt->execute();
 $tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Fetch all IT managers for the `assigned_to` dropdown
+$managersStmt = $conn->prepare("SELECT id, name FROM it_managers");
+$managersStmt->execute();
+$managers = $managersStmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -57,6 +62,14 @@ $tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <select name="status">
                     <option value="Pending">Pending</option>
                     <option value="Resolved">Resolved</option>
+                </select>
+                <select name="assigned_to" required>
+                    <option value="">Select Assigned To</option>
+                    <?php foreach ($managers as $manager): ?>
+                        <option value="<?= htmlspecialchars($manager['id']) ?>">
+                            <?= htmlspecialchars($manager['name']) ?>
+                        </option>
+                    <?php endforeach; ?>
                 </select>
                 <button type="submit">Create Ticket</button>
             </form>
