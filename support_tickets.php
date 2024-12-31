@@ -74,6 +74,12 @@ $managers = $managersStmt->fetchAll(PDO::FETCH_ASSOC);
                 <button type="submit">Create Ticket</button>
             </form>
         </section>
+        <section>
+            <form action="resolve_ticket.php" method="GET">
+                <button type="submit" style="margin-top: 20px;">See your Resolved Tickets</button>
+            </form>
+        </section>
+    </main>
     </main>
 </body>
 </html>
