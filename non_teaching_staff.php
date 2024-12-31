@@ -54,6 +54,11 @@ $staff = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <button type="submit">Add Staff</button>
             </form>
         </section>
+        <section>
+            <form action="support_tickets.php" method="GET">
+                <button type="submit" style="margin-top: 20px;">Add Your Ticket</button>
+            </form>
+        </section>
     </main>
 </body>
 </html>

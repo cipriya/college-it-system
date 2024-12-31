@@ -1,8 +1,8 @@
 <?php
 $host = 'localhost';
 $dbname = 'college_it_system';
-$username = 'root'; // Adjust username
-$password = ''; // Adjust password
+$username = 'root'; 
+$password = ''; 
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

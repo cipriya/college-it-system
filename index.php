@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IT Request Hub</title>
     <style>
-        /* General Body Settings */
+     
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -13,10 +13,10 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            background-color:#5072A7; /* Slight background color for contrast */
+            background-color:#5072A7; 
         }
 
-        /* Header Styling */
+     
         header {
             text-align: center;
             background-color: black;
@@ -33,17 +33,17 @@
         /* Main Content Styling */
         main {
             display: flex;
-            flex: 1; /* Allows the content to fill the height */
+            flex: 1; 
             flex-wrap: wrap;
             padding: 20px;
-            justify-content: center; /* Centers content horizontally */
+            justify-content: center;
         }
 
-        /* White Box on the Left */
+        
         .content-box {
             background: rgba(19, 19, 19, 0.9); 
             padding: 30px;
-            max-width: 45%; /* Set white box width */
+            max-width: 45%; 
             border-radius: 10px;
             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.25);
             margin-right: 20px; /* Space between content and image */
@@ -132,7 +132,7 @@
             }
         }
 
-        /* Responsive Design */
+        
         @media screen and (max-width: 768px) {
             .content-box {
                 max-width: 100%; /* White box spans full width */

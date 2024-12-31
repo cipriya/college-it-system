@@ -1,10 +1,15 @@
 <?php
 include 'db.php';
 
-// Fetch all records from the table
+// Fetch all students from the table
 $stmt = $conn->prepare("SELECT * FROM students");
 $stmt->execute();
 $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Fetch all IT managers for the `assigned_to` dropdown
+$managersStmt = $conn->prepare("SELECT id, name FROM it_managers");
+$managersStmt->execute();
+$managers = $managersStmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -14,15 +19,14 @@ $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Students</title>
     <link rel="stylesheet" href="css/style.css?v=1.1"> <!-- Add version number to bust cache -->
-
     <script src="js/formHandler.js" defer></script>
 </head>
 <body>
     <header>
         <h1>Students</h1>
-        <a href="index.php">Back to Dashboard</a>
     </header>
     <main>
+        <!-- Students Table -->
         <section>
             <h2>Students Table</h2>
             <table>
@@ -48,6 +52,8 @@ $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </tbody>
             </table>
         </section>
+
+        <!-- Add Student Section -->
         <section>
             <h2>Add Student</h2>
             <form action="add_student.php" method="POST" id="studentForm">
@@ -56,6 +62,14 @@ $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <input type="text" name="course" placeholder="Course" required>
                 <input type="text" name="academic_year" placeholder="Academic Year" required>
                 <button type="submit">Add Student</button>
+            </form>
+        </section>
+
+
+        <!-- View Support Tickets Button -->
+        <section>
+            <form action="support_tickets.php" method="GET">
+                <button type="submit" style="margin-top: 20px;">Add Your Ticket</button>
             </form>
         </section>
     </main>
