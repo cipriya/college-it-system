@@ -1,12 +1,12 @@
 <?php
 include 'db.php';
 
-// Fetch all records
+// Fetch all support tickets
 $stmt = $conn->prepare("SELECT * FROM support_tickets");
 $stmt->execute();
 $tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Fetch all IT managers for the `assigned_to` dropdown
+// Fetch all IT managers for dropdown
 $managersStmt = $conn->prepare("SELECT id, name FROM it_managers");
 $managersStmt->execute();
 $managers = $managersStmt->fetchAll(PDO::FETCH_ASSOC);
@@ -37,6 +37,7 @@ $managers = $managersStmt->fetchAll(PDO::FETCH_ASSOC);
                         <th>Status</th>
                         <th>Assigned To</th>
                         <th>Resolved By</th>
+                        <th>Resolve</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,6 +49,24 @@ $managers = $managersStmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?= htmlspecialchars($ticket['status']) ?></td>
                             <td><?= htmlspecialchars($ticket['assigned_to']) ?></td>
                             <td><?= htmlspecialchars($ticket['resolved_by']) ?></td>
+                            <td>
+                                <?php if ($ticket['status'] !== 'Resolved'): ?>
+                                    <form action="resolve_ticket.php" method="POST" style="display: flex; align-items: center;">
+                                        <input type="hidden" name="ticket_id" value="<?= htmlspecialchars($ticket['id']) ?>">
+                                        <select name="resolved_by" required>
+                                            <option value="">Select IT Manager</option>
+                                            <?php foreach ($managers as $manager): ?>
+                                                <option value="<?= htmlspecialchars($manager['id']) ?>">
+                                                    <?= htmlspecialchars($manager['name']) ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                        <button type="submit" style="margin-left: 10px;">Resolve</button>
+                                    </form>
+                                <?php else: ?>
+                                    Resolved
+                                <?php endif; ?>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -74,12 +93,6 @@ $managers = $managersStmt->fetchAll(PDO::FETCH_ASSOC);
                 <button type="submit">Create Ticket</button>
             </form>
         </section>
-        <section>
-            <form action="resolved_tickets.php" method="GET">
-                <button type="submit" style="margin-top: 20px;">See your Resolved Tickets</button>
-            </form>
-        </section>
-    </main>
     </main>
 </body>
 </html>

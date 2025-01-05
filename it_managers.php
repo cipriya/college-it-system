@@ -55,8 +55,8 @@ $managers = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </form>
         </section>
         <section>
-            <form action="support_tickets.php" method="GET">
-                <button type="submit" style="margin-top: 20px;">Add Your Ticket</button>
+            <form action="ticket_it.php" method="GET">
+                <button type="submit" style="margin-top: 20px;">view all tickets</button>
             </form>
         </section>
     </main>

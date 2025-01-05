@@ -2,21 +2,33 @@
 include 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $ticket_id = $_POST['ticket_id'];
-    $resolved_by = $_POST['resolved_by'];
+    $ticket_id = $_POST['ticket_id'] ?? null;
+    $resolved_by = $_POST['resolved_by'] ?? null;
 
-    try {
-        // Update the ticket's resolved_by and trigger the automatic status change via the database trigger
-        $stmt = $conn->prepare("UPDATE support_tickets SET resolved_by = :resolved_by WHERE id = :ticket_id");
-        $stmt->bindParam(':resolved_by', $resolved_by);
-        $stmt->bindParam(':ticket_id', $ticket_id);
-        $stmt->execute();
+    if ($ticket_id && $resolved_by) {
+        try {
+            // Update ticket's resolved_by field, the status will be set to 'Resolved' via database trigger
+            $stmt = $conn->prepare("
+                UPDATE support_tickets 
+                SET resolved_by = :resolved_by 
+                WHERE id = :ticket_id
+            ");
+            $stmt->bindParam(':resolved_by', $resolved_by);
+            $stmt->bindParam(':ticket_id', $ticket_id);
+            $stmt->execute();
 
-        // Redirect back to the tickets page
-        header('Location: support_tickets.php');
+            // Redirect with success status
+            header('Location: support_tickets.php?status=resolved_success');
+            exit();
+        } catch (PDOException $e) {
+            // Handle errors gracefully
+            header('Location: support_tickets.php?status=error&message=' . urlencode($e->getMessage()));
+            exit();
+        }
+    } else {
+        // Redirect with error if input is missing
+        header('Location: support_tickets.php?status=error&message=' . urlencode("Invalid input"));
         exit();
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
     }
 }
 ?>
