@@ -1,0 +1,10 @@
+FEW IMAGES SHOWING THE WORKING OF IT MANAGEMENT SYSTEM
+![Screenshot 2024-12-29 184147](https://github.com/user-attachments/assets/664b26fe-cd16-4131-bb59-878bb497a822)
+![Screenshot 2024-12-29 184118](https://github.com/user-attachments/assets/82da8796-aa27-4e65-ab02-67b4a267a509)
+![Screenshot 2024-12-29 184049](https://github.com/user-attachments/assets/fcdd83d6-3f8f-4039-b89a-d7eff1304ca7)
+![Screenshot 2024-12-29 184020](https://github.com/user-attachments/assets/4e945185-761f-41c2-a1bb-c617dc9c4d8c)
+![Screenshot 2024-12-29 183953](https://github.com/user-attachments/assets/e5bcc604-0264-48d9-8b25-6e10a46468db)
+![Screenshot 2024-12-27 103144](https://github.com/user-attachments/assets/0cac891e-d211-4e2f-a666-1a73b6264237)
+![Screenshot 2025-01-01 030723](https://github.com/user-attachments/assets/f49f2332-f2d4-4f92-bb30-f7ea17156cce)
+![Screenshot 2024-12-29 183906](https://github.com/user-attachments/assets/c5c5904e-feb8-4cb5-a476-9a2f1fc9b35f)
+![Screenshot 2024-12-29 183102](https://github.com/user-attachments/assets/44bf3d12-ab34-4523-8a39-a5aefb74dd12)
